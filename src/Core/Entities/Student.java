@@ -41,7 +41,7 @@ public class Student {
         return mountainCode;
     }
 
-    public double getTuitionFee() {
+    public int getTuitionFee() {
         return tuitionFee;
     }
 

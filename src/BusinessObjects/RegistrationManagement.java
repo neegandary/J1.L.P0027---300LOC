@@ -31,29 +31,37 @@ public class RegistrationManagement {
                 switch (choice) {
                     case 1: {
                         addNewStudent();
+                        break;
                     }
                     case 2: {
                         updateStudent();
+                        break;
                     }
                     case 3: {
                         System.out.println(">>Register List:");
                         printList(studentDAO.getStudents());
+                        break;
                     }
                     case 4: {
                         deleteStudent();
+                        break;
                     }
                     case 5: {
                         searchStudentByName();
+                        break;
                     }
                     case 6: {
                         filterStudentByCampus();
+                        break;
                     }
                     case 7: {
                         statisticsByLocation();
+                        break;
                     }
                     case 8: {
                         saveDataToFile();
                         System.out.println("Data saved to file.");
+                        break;
                     }
                     case 9: {
                         String confirm = DataInput.getString("\"Do you want to save before exiting? (Y/N): ")
@@ -63,9 +71,11 @@ public class RegistrationManagement {
                             saveDataToFile();
                         }
                         System.exit(0);
+                        break;
                     }
                     default: {
                         System.out.println(">>Choice invalid");
+                        break;
                     }
                 }
             } while (true);
@@ -154,7 +164,7 @@ public class RegistrationManagement {
             String name = DataInput.getString("Enter the name:", Constant.NAME_PATTERN);
             String phone = DataInput.getString("Enter the phone:", Constant.PHONE_PATTERN);
             String email = DataInput.getString("Enter the email:", Constant.EMAIL_PATTERN);
-            String mountainCode = DataInput.getString("Enter the mountain code:", Constant.MOUNTAIN_PATTERN);
+            String mountainCode = DataInput.getString("Enter the mountain code:", Constant.validMountainCode);
             student.setName(name);
             student.setPhoneNumber(phone);
             student.setEmail(email);

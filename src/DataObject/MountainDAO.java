@@ -19,10 +19,10 @@ public class MountainDAO {
     public void loadData() throws Exception {
         String mountainCode, mountain, province, description;
         try {
+            // System.out.println("kllk");
             mountainList.clear();
             List<String> mountainData = fileManager.readDataFromFile();
             for (String e : mountainData) {
-                System.out.println("kllk");
                 List<String> mountainSplit = Arrays.asList(e.split(","));
                 mountainCode = mountainSplit.get(0).trim();
                 mountain = mountainSplit.get(1).trim();

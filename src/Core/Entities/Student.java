@@ -10,7 +10,7 @@ public class Student {
     private String phone;
     private String email;
     private String mountainCode;
-    private double tuitionFee;
+    private int tuitionFee;
 
     public Student(String id, String name, String phone, String email, String mountainCode) throws Exception {
         setId(id);
@@ -18,7 +18,7 @@ public class Student {
         setPhoneNumber(phone);
         setEmail(email);
         setMountainCode(mountainCode);
-        setTuitionFee(tuitionFee, phone);
+        setTuitionFee(phone);
     }
 
     public String getId() {
@@ -75,13 +75,14 @@ public class Student {
     }
 
     public void setMountainCode(String mountainCode) throws Exception {
-        if (!DataValidatation.checkStringWithFormat(mountainCode, Constant.MOUNTAIN_PATTERN)) {
+
+        if (!DataValidatation.checkMatchCode(mountainCode, Constant.validMountainCode)) {
             throw new Exception("Code is invalid");
         }
         this.mountainCode = mountainCode;
     }
 
-    public void setTuitionFee(double tuitionFee, String phone) throws Exception {
+    public void setTuitionFee(String phone) throws Exception {
         if (Constant.whitelistPhone.contains(phone.substring(0, 3))) {
             this.tuitionFee = 3900000;
             return;

@@ -8,6 +8,7 @@ import java.util.Map;
 import Core.Entities.Student;
 import Core.Interfaces.IRegistration;
 import Presentation.Menu;
+import Utilities.Algorithm;
 import Utilities.Constant;
 import Utilities.DataInput;
 
@@ -78,7 +79,7 @@ public class RegistrationManagement {
         String name = DataInput.getString("Enter the name:", Constant.NAME_PATTERN);
         String phone = DataInput.getString("Enter the phone:", Constant.PHONE_PATTERN);
         String email = DataInput.getString("Enter the email:", Constant.EMAIL_PATTERN);
-        String mountainCode = DataInput.getString("Enter the mountain code:", Constant.MOUNTAIN_PATTERN);
+        String mountainCode = DataInput.getString("Enter the mountain code:", Constant.validMountainCode);
         Student student = new Student(id, name, phone, email, mountainCode);
         return student;
     }
@@ -132,7 +133,6 @@ public class RegistrationManagement {
             if (studentDAO.getStudentById(student.getId()) == null) {
                 System.out.println(student.toString());
                 studentDAO.addStudent(student);
-                System.out.println(System.identityHashCode(studentDAO.getStudents()));
                 System.out.println("Student added successfully.");
             } else {
                 System.out.println("Student ID already exists.");

@@ -63,7 +63,7 @@ public class StudentDAO implements IRegistration {
             studentUpdate.setName(student.getName());
             studentUpdate.setPhoneNumber(student.getPhoneNumber());
             studentUpdate.setMountainCode(student.getMountainCode());
-            studentUpdate.setTuitionFee(student.getTuitionFee(), student.getPhoneNumber());
+            studentUpdate.setTuitionFee(student.getPhoneNumber());
         }
     }
 

@@ -60,7 +60,7 @@ public class Student {
     }
 
     public void setPhoneNumber(String phone) throws Exception {
-        if (!DataValidatation.checkStringWithFormat(email,
+        if (!DataValidatation.checkStringWithFormat(phone,
                 Constant.PHONE_PATTERN)) {
             throw new Exception("Phone number is invalid");
         }
